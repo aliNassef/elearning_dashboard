@@ -12,7 +12,7 @@ class CoursesView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 2,
-        backgroundColor: AppColors.lightsecondaryColor,
+        backgroundColor: AppColors.primaryColor,
         centerTitle: true,
         title: Text(
           'Add Course',

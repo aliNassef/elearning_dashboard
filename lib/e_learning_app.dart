@@ -31,7 +31,9 @@ class ELearningApp extends StatelessWidget {
           ),
           fontFamily: GoogleFonts.montserrat().fontFamily,
           appBarTheme: const AppBarTheme(
-            systemOverlayStyle: SystemUiOverlayStyle(),
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+            ),
           ),
           scaffoldBackgroundColor: Colors.white,
         ),
