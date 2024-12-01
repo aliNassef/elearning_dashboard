@@ -1,3 +1,7 @@
+import 'dart:developer';
+import 'dart:io';
+import 'package:elearning_dashboard/core/shared/functions/build_error_message.dart';
+import 'package:elearning_dashboard/features/courses/domain/entity/course_entity.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_color.dart';
@@ -18,8 +22,20 @@ class CoursesViewBody extends StatefulWidget {
 }
 
 class _CoursesViewBodyState extends State<CoursesViewBody> {
+  // The form key to validate the form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  // The auto validation mode of the form
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  // The text editing controllers for the course's properties
+  final TextEditingController courseCode = TextEditingController();
+  final TextEditingController courseTitle = TextEditingController();
+  final TextEditingController courseDescription = TextEditingController();
+  final TextEditingController courseCategory = TextEditingController();
+  final TextEditingController courseCreatedBy = TextEditingController();
+  final TextEditingController coursePrice = TextEditingController();
+  final TextEditingController courseDiscount = TextEditingController();
+  File? image;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,32 +50,39 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CourseInputField(
+              CourseInputField(
+                controller: courseCode,
                 title: 'Course Code',
                 hint: 'enter course code',
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: courseTitle,
                 title: 'Course Title',
                 hint: 'enter course name',
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: courseDescription,
                 title: 'Course description',
                 hint: 'enter course description',
                 maxLines: 3,
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: courseCategory,
                 title: 'Course Category',
                 hint: 'enter course category',
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: courseCreatedBy,
                 title: 'Created By',
                 hint: 'enter instructor name',
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: coursePrice,
                 title: 'Course Price',
                 hint: 'enter course price',
               ),
-              const CourseInputField(
+              CourseInputField(
+                controller: courseDiscount,
                 title: 'Course Discount',
                 hint: 'enter course discount',
               ),
@@ -69,9 +92,37 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                 textAlign: TextAlign.start,
               ),
               const VerticalSpace(8),
-              const UploadThumbnail(),
+              PickThumbnail(
+                valueChanged: (value) => image = value,
+              ),
               const VerticalSpace(16),
-              const DefaultAppButton(
+              DefaultAppButton(
+                onPressed: () {
+                  if (image != null) {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      final course = CourseEntity(
+                        price: coursePrice.text,
+                        discount: courseDiscount.text,
+                        thumnail: image!,
+                        courseCode: courseCode.text.toLowerCase(),
+                        courseTitle: courseTitle.text,
+                        courseDescription: courseDescription.text,
+                        category: courseCategory.text,
+                        createdBy: courseCreatedBy.text,
+                      );
+                      log(course.toString());
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
+                  } else {
+                    buildErrorMessage(
+                      context,
+                      errMessage: 'Please upload thumbnail',
+                    );
+                  }
+                },
                 text: 'Save',
                 backgroundColor: AppColors.primaryColor,
                 textColor: Colors.white,

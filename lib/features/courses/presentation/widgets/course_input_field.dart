@@ -9,10 +9,12 @@ class CourseInputField extends StatelessWidget {
     required this.title,
     required this.hint,
     this.maxLines = 1,
+    required this.controller,
   });
   final String title;
   final String hint;
   final int maxLines;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +28,7 @@ class CourseInputField extends StatelessWidget {
         CustomTextFormField(
           maxLines: maxLines,
           hintText: hint,
-          controller: TextEditingController(),
+          controller: controller,
         ),
         const VerticalSpace(16),
       ],
