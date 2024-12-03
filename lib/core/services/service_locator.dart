@@ -1,3 +1,8 @@
+import '../repos/image_repo/image_rep_impl.dart';
+import '../repos/image_repo/image_repo.dart';
+import 'fire_storage.dart';
+import 'storage_service.dart';
+
 import 'firestore_database.dart';
 import '../../features/courses/data/repo/courses_repo_impl.dart';
 import '../../features/courses/data/source/courses_remote_source.dart';
@@ -12,9 +17,21 @@ Future<void> setupServiceLocator() async {
     FirestoreService(),
   );
   injector.registerSingleton<CoursesRemoteSource>(
-    CoursesRemoteSource(firestoreService: injector<FirestoreService>()),
+    CoursesRemoteSource(
+      firestoreService: injector<FirestoreService>(),
+    ),
   );
   injector.registerSingleton<CoursesRepo>(
-    CoursesRepoImpl(coursesRemoteSource: injector<CoursesRemoteSource>()),
+    CoursesRepoImpl(
+      coursesRemoteSource: injector<CoursesRemoteSource>(),
+    ),
+  );
+  injector.registerSingleton<StorageService>(
+    FireStorage(),
+  );
+  injector.registerSingleton<ImageRepo>(
+    ImageRepImpl(
+      storageService: injector<StorageService>(),
+    ),
   );
 }

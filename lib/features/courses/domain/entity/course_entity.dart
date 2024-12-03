@@ -6,7 +6,9 @@ class CourseEntity {
   final String courseDescription;
   final String category;
   final String createdBy;
+
   final File thumnail;
+  String? thumnailUrl;
   final String price;
   final String discount;
 
@@ -19,5 +21,6 @@ class CourseEntity {
     required this.courseDescription,
     required this.category,
     required this.createdBy,
+    this.thumnailUrl,
   });
 }

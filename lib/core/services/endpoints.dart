@@ -7,4 +7,5 @@ class Endpoints {
   static const String questions = 'questions';
   static const String quizes = 'quizes';
   static const String payments = 'payments';
+  static const String images = 'images';
 }

@@ -1,7 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:elearning_dashboard/core/shared/functions/build_error_message.dart';
-import 'package:elearning_dashboard/features/courses/domain/entity/course_entity.dart';
+import 'package:elearning_dashboard/core/shared/functions/build_loading_box.dart';
+import 'package:elearning_dashboard/core/shared/functions/toast_dialog.dart';
+import 'package:elearning_dashboard/features/courses/presentation/manger/course_cubit/course_cubit_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/shared/functions/build_error_message.dart';
+import '../../domain/entity/course_entity.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_color.dart';
@@ -96,36 +101,54 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                 valueChanged: (value) => image = value,
               ),
               const VerticalSpace(16),
-              DefaultAppButton(
-                onPressed: () {
-                  if (image != null) {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      final course = CourseEntity(
-                        price: coursePrice.text,
-                        discount: courseDiscount.text,
-                        thumnail: image!,
-                        courseCode: courseCode.text.toLowerCase(),
-                        courseTitle: courseTitle.text,
-                        courseDescription: courseDescription.text,
-                        category: courseCategory.text,
-                        createdBy: courseCreatedBy.text,
-                      );
-                      log(course.toString());
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  } else {
+              BlocListener<CourseCubit, CourseState>(
+                listener: (context, state) {
+                  if (state is CourseCubitSuccess) {
+                    showToast(text: 'Course added successfully');
+                  }
+
+                  if (state is CourseCubitFailure) {
                     buildErrorMessage(
                       context,
-                      errMessage: 'Please upload thumbnail',
+                      errMessage: state.errMessage,
                     );
                   }
+                  if (state is CourseCubitLoading) {
+                    buildLoadingBox(context);
+                  }
                 },
-                text: 'Save',
-                backgroundColor: AppColors.primaryColor,
-                textColor: Colors.white,
+                child: DefaultAppButton(
+                  onPressed: () {
+                    if (image != null) {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        final course = CourseEntity(
+                          price: coursePrice.text,
+                          discount: courseDiscount.text,
+                          thumnail: image!,
+                          courseCode: courseCode.text.toLowerCase(),
+                          courseTitle: courseTitle.text,
+                          courseDescription: courseDescription.text,
+                          category: courseCategory.text,
+                          createdBy: courseCreatedBy.text,
+                        );
+                        log(course.toString());
+                        context.read<CourseCubit>().addCourse(course: course);
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    } else {
+                      buildErrorMessage(
+                        context,
+                        errMessage: 'Please upload thumbnail',
+                      );
+                    }
+                  },
+                  text: 'Save',
+                  backgroundColor: AppColors.primaryColor,
+                  textColor: Colors.white,
+                ),
               ),
               const VerticalSpace(16),
             ],

@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:elearning_dashboard/features/courses/domain/entity/course_entity.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/errors/failure.dart';
 import '../source/courses_remote_source.dart';
@@ -11,9 +12,9 @@ class CoursesRepoImpl extends CoursesRepo {
 
   CoursesRepoImpl({required this.coursesRemoteSource});
   @override
-  Future<Either<Failure, void>> addCourse(CourseModel course) async {
+  Future<Either<Failure, void>> addCourse(CourseEntity course) async {
     try {
-      await coursesRemoteSource.addCourse(course);
+      await coursesRemoteSource.addCourse(CourseModel.fromEntity(course));
       return right(null);
     } on ServerException catch (e) {
       return Left(
