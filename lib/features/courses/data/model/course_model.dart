@@ -30,11 +30,14 @@ class CourseModel {
 
   Map<String, dynamic> toMap() {
     return {
+      'courseId': courseId,
       'title': title,
       'description': description,
       'category': category,
       'thumbnailUrl': thumbnailUrl,
       'createdBy': createdBy,
+      'price': price,
+      'discount': discount,
       'createdAt': createdAt != null
           ? Timestamp.fromDate(createdAt!)
           : FieldValue.serverTimestamp(),
