@@ -123,6 +123,7 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
                         final course = CourseEntity(
+                          reviewEntity: [],
                           price: coursePrice.text,
                           discount: courseDiscount.text,
                           thumnail: image!,

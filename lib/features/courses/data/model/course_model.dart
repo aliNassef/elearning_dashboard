@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:elearning_dashboard/features/courses/data/model/review_model.dart';
 
 import '../../domain/entity/course_entity.dart';
 
@@ -15,7 +16,9 @@ class CourseModel {
   final DateTime? createdAt;
   final String price;
   final String discount;
+  final List<ReviewModel> reviews;
   CourseModel({
+    required this.reviews,
     required this.courseId,
     required this.title,
     required this.description,
@@ -32,6 +35,7 @@ class CourseModel {
     return {
       'courseId': courseId,
       'title': title,
+      'reviews': reviews.map((e) => e.toMap()).toList(),
       'description': description,
       'category': category,
       'thumbnailUrl': thumbnailUrl,
@@ -46,6 +50,8 @@ class CourseModel {
 
   factory CourseModel.fromEntity(CourseEntity course) {
     return CourseModel(
+      reviews:
+          course.reviewEntity.map((e) => ReviewModel.fromEntity(e)).toList(),
       courseId: course.courseCode,
       title: course.courseTitle,
       description: course.courseDescription,
@@ -56,18 +62,6 @@ class CourseModel {
       price: course.price,
       discount: course.discount,
       thumbnail: course.thumnail,
-    );
-  }
-  CourseEntity toEntity() {
-    return CourseEntity(
-      courseCode: courseId,
-      courseTitle: title,
-      courseDescription: description,
-      category: category,
-      thumnail: thumbnail,
-      createdBy: createdBy,
-      discount: discount,
-      price: price,
     );
   }
 }

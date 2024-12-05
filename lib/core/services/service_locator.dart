@@ -1,3 +1,7 @@
+import 'package:elearning_dashboard/features/lessons/data/source/lesson_source.dart';
+import 'package:elearning_dashboard/features/lessons/domain/repo/lesson_repo.dart';
+
+import '../../features/lessons/data/repo/lesson_repo_impl.dart';
 import '../repos/image_repo/image_rep_impl.dart';
 import '../repos/image_repo/image_repo.dart';
 import 'fire_storage.dart';
@@ -34,4 +38,15 @@ Future<void> setupServiceLocator() async {
       storageService: injector<StorageService>(),
     ),
   );
+
+  injector.registerSingleton<LessonSource>(
+    LessonSource(service: injector<FirestoreService>()),
+  );
+
+  injector.registerSingleton<LessonRepo>(
+    LessonRepoImpl(
+      source: injector<LessonSource>(),
+    ),
+  );
+  
 }

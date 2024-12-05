@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:elearning_dashboard/features/courses/domain/entity/review_entity.dart';
+
 class CourseEntity {
   final String courseCode;
   final String courseTitle;
@@ -10,8 +12,9 @@ class CourseEntity {
   String? thumnailUrl;
   final String price;
   final String discount;
-
+  final List<ReviewEntity> reviewEntity;
   CourseEntity({
+    required this.reviewEntity,
     required this.price,
     required this.discount,
     required this.thumnail,

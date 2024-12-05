@@ -25,7 +25,7 @@ class DefaultAppButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           padding:
-              const WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 20)),
+              const WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: 16)),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -52,7 +52,7 @@ class DefaultAppButton extends StatelessWidget {
           children: [
             Text(
               text,
-              style: AppStyles.textStyle14SB.copyWith(
+              style: AppStyles.textStyle16M.copyWith(
                 color: textColor,
               ),
             ),

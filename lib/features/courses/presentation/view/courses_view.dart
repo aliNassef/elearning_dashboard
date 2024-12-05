@@ -13,7 +13,9 @@ class CoursesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        title:  'Add Course',
+      ),
       body: BlocProvider(
         create: (context) => CourseCubit(
           injector<ImageRepo>(),
