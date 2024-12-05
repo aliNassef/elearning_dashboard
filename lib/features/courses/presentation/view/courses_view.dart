@@ -1,6 +1,6 @@
-import 'package:elearning_dashboard/core/repos/image_repo/image_repo.dart';
-import 'package:elearning_dashboard/core/services/service_locator.dart';
-import 'package:elearning_dashboard/features/courses/presentation/manger/course_cubit/course_cubit_cubit.dart';
+import '../../../../core/repos/image_repo/image_repo.dart';
+import '../../../../core/services/service_locator.dart';
+import '../manger/course_cubit/course_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/shared/widgets/custom_app_bar.dart';
