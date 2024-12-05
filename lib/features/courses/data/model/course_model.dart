@@ -47,7 +47,7 @@ class CourseModel {
       title: course.courseTitle,
       description: course.courseDescription,
       category: course.category,
-      thumbnailUrl: '',
+      thumbnailUrl: course.thumnailUrl ?? '',
       createdBy: course.createdBy,
       createdAt: DateTime.now(),
       price: course.price,

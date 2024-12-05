@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import '../../../../core/shared/functions/build_loading_box.dart';
 import '../../../../core/shared/functions/toast_dialog.dart';
@@ -103,10 +102,12 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
               BlocListener<CourseCubit, CourseState>(
                 listener: (context, state) {
                   if (state is CourseCubitSuccess) {
+                    Navigator.pop(context);
                     showToast(text: 'Course added successfully');
                   }
 
                   if (state is CourseCubitFailure) {
+                    Navigator.pop(context);
                     buildErrorMessage(
                       context,
                       errMessage: state.errMessage,
@@ -131,7 +132,6 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                           category: courseCategory.text,
                           createdBy: courseCreatedBy.text,
                         );
-                        log(course.toString());
                         context.read<CourseCubit>().addCourse(course: course);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
@@ -155,5 +155,17 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    courseCode.dispose();
+    courseTitle.dispose();
+    courseDescription.dispose();
+    courseCategory.dispose();
+    courseCreatedBy.dispose();
+    coursePrice.dispose();
+    courseDiscount.dispose();
+    super.dispose();
   }
 }

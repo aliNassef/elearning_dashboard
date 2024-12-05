@@ -9,7 +9,7 @@ Future<dynamic> buildLoadingBox(BuildContext context) {
       return Center(
         child: Container(
           width: 80.w,
-          height: 80.h, 
+          height: 80.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             color: Colors.white,

@@ -6,7 +6,6 @@ class CourseEntity {
   final String courseDescription;
   final String category;
   final String createdBy;
-
   final File thumnail;
   String? thumnailUrl;
   final String price;

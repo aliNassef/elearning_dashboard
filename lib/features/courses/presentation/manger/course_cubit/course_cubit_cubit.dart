@@ -21,6 +21,7 @@ class CourseCubit extends Cubit<CourseState> {
       ),
       (imageUrl) async {
         course.thumnailUrl = imageUrl;
+
         final data = await _coursesRepo.addCourse(course);
         data.fold(
           (failure) => emit(
