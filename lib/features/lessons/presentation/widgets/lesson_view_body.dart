@@ -90,14 +90,23 @@ class _LessonViewBodyState extends State<LessonViewBody> {
                 },
                 child: DefaultAppButton(
                   onPressed: () {
-                    final LessonEntity lesson = LessonEntity(
-                      courseId: '555',
-                      description: desc.text,
-                      id: id.text.toLowerCase(),
-                      title: title.text,
-                      videoUrl: videoUrl.text,
-                    );
-                    context.read<LessonCubit>().addLesson(lesson: lesson);
+                    if (_formKey.currentState!.validate()) {
+                      final LessonEntity lesson = LessonEntity(
+                        courseId: '555',
+                        description: desc.text,
+                        id: id.text.toLowerCase(),
+                        title: title.text,
+                        videoUrl: videoUrl.text,
+                      );
+                      context.read<LessonCubit>().addLesson(lesson: lesson);
+                    } else {
+                      buildErrorMessage(
+                        context,
+                        errMessage: 'All fields are required',
+                      );
+                      autovalidateMode = AutovalidateMode.always;
+                      setState(() {});
+                    }
                   },
                   text: 'Save',
                   backgroundColor: AppColors.primaryColor,

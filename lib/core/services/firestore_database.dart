@@ -38,7 +38,7 @@ class FirestoreService {
         .collection(Endpoints.courses)
         .doc(courseId)
         .collection(Endpoints.quizes)
-        .doc(quiz['quizId']);
+        .doc(quiz['id']);
     await quizDoc.set(quiz);
   }
 

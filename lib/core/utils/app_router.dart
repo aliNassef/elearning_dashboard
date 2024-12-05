@@ -2,6 +2,7 @@ import '../../features/courses/presentation/view/courses_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/lessons/presentation/view/lesson_view.dart';
+import '../../features/quizes/presentation/view/quize_view.dart';
 import '../shared/widgets/custom_no_internet_widget.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -16,6 +17,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const LessonView();
+        },
+      );
+    case QuizeView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const QuizeView();
         },
       );
     case CustomNoInternetWidget.routeName:
