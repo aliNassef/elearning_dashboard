@@ -3,20 +3,20 @@ import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
-class QuizeInputField extends StatelessWidget {
-  const QuizeInputField({
+class QuestionInputField extends StatelessWidget {
+  const QuestionInputField({
     super.key,
     required this.title,
     required this.hint,
     this.maxLines = 1,
     required this.controller,
-    this.keyboardtype = TextInputType.text,
+    this.keyboardType = TextInputType.text,
   });
   final String title;
   final String hint;
   final int maxLines;
   final TextEditingController controller;
-  final TextInputType keyboardtype;
+  final TextInputType keyboardType;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +28,7 @@ class QuizeInputField extends StatelessWidget {
         ),
         const VerticalSpace(8),
         CustomTextFormField(
-          keyboardType: keyboardtype,
+          keyboardType: keyboardType,
           maxLines: maxLines,
           hintText: hint,
           controller: controller,

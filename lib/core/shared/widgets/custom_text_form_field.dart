@@ -10,12 +10,13 @@ class CustomTextFormField extends StatefulWidget {
     required this.controller,
     this.isPassword = false,
     this.maxLines = 1,
+    this.keyboardType = TextInputType.text,
   });
   final String hintText;
   final TextEditingController controller;
   final bool isPassword;
   final int maxLines;
-
+  final TextInputType keyboardType;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -25,6 +26,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.keyboardType,
       cursorColor: AppColors.lightsecondaryColor,
       obscureText: isSecure,
       validator: (value) {

@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/lessons/domain/entity/lesson_entity.dart';
+import '../../domain/entity/lesson_entity.dart';
 
 class LessonModel {
   final String id;

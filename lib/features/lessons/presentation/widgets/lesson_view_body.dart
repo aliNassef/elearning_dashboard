@@ -1,8 +1,8 @@
-import 'package:elearning_dashboard/core/shared/widgets/default_app_button.dart';
-import 'package:elearning_dashboard/core/utils/app_constants.dart';
-import 'package:elearning_dashboard/features/lessons/domain/entity/lesson_entity.dart';
-import 'package:elearning_dashboard/features/lessons/presentation/manger/lesson_cubit/lesson_cubit.dart';
-import 'package:elearning_dashboard/features/lessons/presentation/widgets/lesson_input_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../domain/entity/lesson_entity.dart';
+import '../manger/lesson_cubit/lesson_cubit.dart';
+import 'lesson_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

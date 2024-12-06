@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/quizes/domain/repo/quize_repo.dart';
+import '../../../domain/repo/quize_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 

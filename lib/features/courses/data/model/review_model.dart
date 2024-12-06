@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/courses/domain/entity/review_entity.dart';
+import '../../domain/entity/review_entity.dart';
 
 class ReviewModel {
   final String name;

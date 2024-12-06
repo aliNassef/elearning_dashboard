@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:elearning_dashboard/features/courses/domain/entity/review_entity.dart';
+import 'review_entity.dart';
 
 class CourseEntity {
   final String courseCode;

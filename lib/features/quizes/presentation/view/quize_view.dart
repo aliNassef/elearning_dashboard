@@ -1,5 +1,5 @@
-import 'package:elearning_dashboard/core/services/service_locator.dart';
-import 'package:elearning_dashboard/features/quizes/domain/repo/quize_repo.dart';
+import '../../../../core/services/service_locator.dart';
+import '../../domain/repo/quize_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,7 +1,7 @@
-import 'package:elearning_dashboard/core/errors/error_model.dart';
-import 'package:elearning_dashboard/core/errors/exceptions.dart';
-import 'package:elearning_dashboard/core/services/firestore_database.dart';
-import 'package:elearning_dashboard/features/quizes/data/model/quize_model.dart';
+import '../../../../core/errors/error_model.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/services/firestore_database.dart';
+import '../model/quize_model.dart';
 
 class QuizeSource {
   final FirestoreService firestoreService;

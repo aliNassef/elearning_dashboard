@@ -1,7 +1,7 @@
-import 'package:elearning_dashboard/features/lessons/data/source/lesson_source.dart';
-import 'package:elearning_dashboard/features/lessons/domain/repo/lesson_repo.dart';
-import 'package:elearning_dashboard/features/quizes/data/source/quize_source.dart';
-import 'package:elearning_dashboard/features/quizes/domain/repo/quize_repo.dart';
+import '../../features/lessons/data/source/lesson_source.dart';
+import '../../features/lessons/domain/repo/lesson_repo.dart';
+import '../../features/quizes/data/source/quize_source.dart';
+import '../../features/quizes/domain/repo/quize_repo.dart';
 
 import '../../features/lessons/data/repo/lesson_repo_impl.dart';
 import '../../features/quizes/data/repo/quize_repo_impl.dart';

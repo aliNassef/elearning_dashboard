@@ -1,8 +1,6 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:elearning_dashboard/features/lessons/presentation/view/lesson_view.dart';
-import 'package:elearning_dashboard/features/quizes/presentation/view/quize_view.dart';
+import 'features/quizes/presentation/view/quize_view.dart';
 import 'core/utils/app_router.dart';
-import 'features/courses/presentation/view/courses_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

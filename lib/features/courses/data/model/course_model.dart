@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:elearning_dashboard/features/courses/data/model/review_model.dart';
+import 'review_model.dart';
 
 import '../../domain/entity/course_entity.dart';
 
