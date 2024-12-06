@@ -43,16 +43,17 @@ class FirestoreService {
   }
 
   /// Add a question to a quiz
-  Future<void> addQuestion(
-      String courseId, String quizId, Map<String, dynamic> question) async {
+  Future<void> addQuestions(String courseId, String quizId,
+      List<Map<String, dynamic>> questions) async {
     final questionDoc = _firestore
         .collection(Endpoints.courses)
         .doc(courseId)
         .collection(Endpoints.quizes)
         .doc(quizId)
-        .collection(Endpoints.questions)
-        .doc(question['questionId']);
-    await questionDoc.set(question);
+        .collection(Endpoints.questions);
+    for (var question in questions) {
+      await questionDoc.add(question); // Add each question
+    }
   }
 
   /// Record a payment
@@ -62,24 +63,23 @@ class FirestoreService {
     await paymentDoc.set(payment);
   }
 
-  /// Get lessons for a course
-  Future<List<Map<String, dynamic>>> getLessons(String courseId) async {
-    final lessonsSnapshot = await _firestore
-        .collection(Endpoints.courses)
-        .doc(courseId)
-        .collection(Endpoints.lessons)
-        .orderBy('order')
-        .get();
+  // /// Get lessons for a course
+  // Future<List<Map<String, dynamic>>> getLessons(String courseId) async {
+  //   final lessonsSnapshot = await _firestore
+  //       .collection(Endpoints.courses)
+  //       .doc(courseId)
+  //       .collection(Endpoints.lessons)
+  //       .orderBy('order')
+  //       .get();
 
-    return [];
-    // return lessonsSnapshot.docs
-    //     .map((doc) => LessonModel(
-    //           lessonId: doc.id,
-    //           title: doc['title'],
-    //           contentUrl: doc['contentUrl'],
-    //           order: doc['order'],
-    //           createdAt: (doc['createdAt'] as Timestamp).toDate(),
-    //         ))
-    //     .toList();
-  }
+  //   return [];
+  //   // return lessonsSnapshot.docs
+  //   //     .map((doc) => LessonModel(
+  //   //           lessonId: doc.id,
+  //           title: doc['title'],
+  //           contentUrl: doc['contentUrl'],
+  //           order: doc['order'],
+  //           createdAt: (doc['createdAt'] as Timestamp).toDate(),
+  //         ))
+  //     .toList();
 }

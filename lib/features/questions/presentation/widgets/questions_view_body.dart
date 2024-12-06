@@ -1,4 +1,3 @@
-
 import 'package:elearning_dashboard/features/questions/presentation/widgets/question.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,6 @@ class _QuestionsViewBodyState extends State<QuestionsViewBody> {
     super.initState();
     pageController = PageController(
       initialPage: 0,
-      viewportFraction: 0.7,
     );
   }
 
@@ -28,7 +26,7 @@ class _QuestionsViewBodyState extends State<QuestionsViewBody> {
       itemBuilder: (context, index) {
         return Question(
           page: pageController,
-          currentPage: index,
+          numOfQuestions: widget.numOfQuestions,
         );
       },
       itemCount: widget.numOfQuestions,

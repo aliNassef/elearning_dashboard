@@ -1,3 +1,8 @@
+import 'package:elearning_dashboard/features/questions/data/repo/questions_repo_impl.dart';
+import 'package:elearning_dashboard/features/questions/data/source/questions_source.dart';
+import 'package:elearning_dashboard/features/questions/domain/repo/questions_repo.dart';
+import 'package:elearning_dashboard/features/questions/presentation/widgets/question.dart';
+
 import '../../features/lessons/data/source/lesson_source.dart';
 import '../../features/lessons/domain/repo/lesson_repo.dart';
 import '../../features/quizes/data/source/quize_source.dart';
@@ -59,6 +64,16 @@ Future<void> setupServiceLocator() async {
   injector.registerSingleton<QuizeRepo>(
     QuizeRepoImpl(
       quizeSource: injector<QuizeSource>(),
+    ),
+  );
+  injector.registerSingleton<QuestionsSource>(
+    QuestionsSource(
+      firestoreService: injector<FirestoreService>(),
+    ),
+  );
+  injector.registerSingleton<QuestionsRepo>(
+    QuestionsRepoImpl(
+      questionsSource: injector<QuestionsSource>(),
     ),
   );
 }
