@@ -32,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   device_preview: ^1.2.0
+  firebase_auth: ^5.3.4
   firebase_core: ^3.8.0
   firebase_storage: ^12.3.6
   flutter:

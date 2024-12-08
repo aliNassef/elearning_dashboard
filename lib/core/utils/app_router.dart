@@ -2,6 +2,7 @@ import '../../features/courses/presentation/view/courses_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/lessons/presentation/view/lesson_view.dart';
+import '../../features/login/presentation/views/login_view.dart';
 import '../../features/questions/presentation/view/questions_view.dart';
 import '../../features/quizes/presentation/view/quize_view.dart';
 import '../shared/widgets/custom_no_internet_widget.dart';
@@ -24,6 +25,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const QuizeView();
+        },
+      );
+    case LoginView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const LoginView();
         },
       );
     case QuestionsView.routeName:
