@@ -29,9 +29,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case QuestionsView.routeName:
       var arguments = settings.arguments as Map<String, dynamic>;
       int numOfQQuestions = int.parse(arguments['questionsNumber']);
+      String quizId = arguments['quizId'];
       return MaterialPageRoute(
         builder: (_) {
           return QuestionsView(
+            quizId: quizId,
             questionsNumber: numOfQQuestions,
           );
         },

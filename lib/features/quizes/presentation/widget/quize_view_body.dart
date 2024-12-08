@@ -72,6 +72,7 @@ class _QuizeViewBodyState extends State<QuizeViewBody> {
                       QuestionsView.routeName,
                       arguments: {
                         'questionsNumber': numOfQuestions.text,
+                        'quizId': id.text,
                       },
                     );
                   }

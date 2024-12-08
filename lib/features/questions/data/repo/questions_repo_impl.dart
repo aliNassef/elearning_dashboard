@@ -17,7 +17,7 @@ class QuestionsRepoImpl extends QuestionsRepo {
     try {
       await questionsSource.addQuestiosn(
         '555',
-        'zz',
+        questions.first.quizId,
         questions.map((e) => QuestionModel.fromEntity(e)).toList(),
       );
       return const Right(null);

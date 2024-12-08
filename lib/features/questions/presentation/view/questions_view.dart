@@ -7,10 +7,15 @@ import '../../domain/repo/questions_repo.dart';
 import '../widgets/questions_view_body.dart';
 
 class QuestionsView extends StatelessWidget {
-  final int questionsNumber;
-  const QuestionsView({super.key, required this.questionsNumber});
   static const routeName = 'questions';
+  final int questionsNumber;
+  final String quizId;
 
+  const QuestionsView({
+    super.key,
+    required this.questionsNumber,
+    required this.quizId,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +23,7 @@ class QuestionsView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => QuestionCubit(injector<QuestionsRepo>()),
         child: QuestionsViewBody(
+          quizId: quizId,
           numOfQuestions: questionsNumber,
         ),
       ),

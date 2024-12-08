@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:elearning_dashboard/core/shared/functions/build_error_message.dart';
+import 'package:elearning_dashboard/core/shared/functions/build_loading_box.dart';
 import 'package:elearning_dashboard/core/shared/widgets/default_app_button.dart';
 import 'package:elearning_dashboard/core/shared/widgets/spacers.dart';
 import 'package:elearning_dashboard/core/utils/app_color.dart';
@@ -17,9 +19,13 @@ class Question extends StatefulWidget {
     super.key,
     required this.numOfQuestions,
     required this.page,
+    required this.currentPage,
+    required this.quizId,
   });
   final int numOfQuestions;
   final PageController page;
+  final int currentPage;
+  final String quizId;
   @override
   State<Question> createState() => _QuestionState();
 }
@@ -47,7 +53,7 @@ class _QuestionState extends State<Question> {
             children: [
               QuestionInputField(
                 hint: 'enter question',
-                title: 'Question ${(widget.page.page?.round() ?? 0) + 1}',
+                title: 'Question ${widget.currentPage + 1}',
                 controller: question,
               ),
               QuestionInputField(
@@ -77,36 +83,20 @@ class _QuestionState extends State<Question> {
                 controller: correctAnswer,
               ),
               BlocListener<QuestionCubit, QuestionState>(
-                listener: (context, state) {},
+                listener: (context, state) {
+                  if (state is QuestionSuccess) {
+                    Navigator.pop(context);
+                    log('questions added');
+                  } else if (state is QuestionFailure) {
+                    Navigator.pop(context);
+                    buildErrorMessage(context, errMessage: state.errMessage);
+                  } else {
+                    buildLoadingBox(context);
+                  }
+                },
                 child: DefaultAppButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      var input = QuestionEntity(
-                        corrextAnswer: int.parse(correctAnswer.text),
-                        options: [
-                          choiceA.text,
-                          choiceB.text,
-                          choiceC.text,
-                          choiceD.text
-                        ],
-                        question: question.text,
-                      );
-
-                      AppConstants.questions.add(input);
-                      log(AppConstants.questions.toString());
-
-                      if (widget.page.page == widget.numOfQuestions - 1) {
-                        // add to database
-                        context.read<QuestionCubit>().addQuestions(
-                              AppConstants.questions,
-                            );
-                      }
-
-                      widget.page.nextPage(
-                        duration: const Duration(milliseconds: 800),
-                        curve: Curves.easeIn,
-                      );
-                    }
+                    addQuestuins(context);
                   },
                   text: 'Next',
                   backgroundColor: AppColors.primaryColor,
@@ -119,6 +109,31 @@ class _QuestionState extends State<Question> {
         ),
       ),
     );
+  }
+
+  void addQuestuins(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      var input = QuestionEntity(
+        quizId: widget.quizId,
+        corrextAnswer: int.parse(correctAnswer.text),
+        options: [choiceA.text, choiceB.text, choiceC.text, choiceD.text],
+        question: question.text,
+      );
+
+      AppConstants.questions.add(input);
+      log(AppConstants.questions.toString());
+
+      if (widget.page.page == widget.numOfQuestions - 1) {
+        // add to database
+        context.read<QuestionCubit>().addQuestions(
+              AppConstants.questions,
+            );
+      }
+      widget.page.nextPage(
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeIn,
+      );
+    }
   }
 
   @override
