@@ -1,5 +1,6 @@
 import 'dart:developer';
-
+import 'package:elearning_dashboard/core/shared/functions/toast_dialog.dart';
+import 'package:elearning_dashboard/features/courses/presentation/view/courses_view.dart';
 import '../../../../core/shared/functions/build_error_message.dart';
 import '../../../../core/shared/functions/build_loading_box.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
@@ -86,7 +87,11 @@ class _QuestionState extends State<Question> {
                 listener: (context, state) {
                   if (state is QuestionSuccess) {
                     Navigator.pop(context);
-                    log('questions added');
+                    showToast(text: 'questions added');
+                    Navigator.pushReplacementNamed(
+                      context,
+                      CoursesView.routeName,
+                    );
                   } else if (state is QuestionFailure) {
                     Navigator.pop(context);
                     buildErrorMessage(context, errMessage: state.errMessage);
