@@ -3,5 +3,5 @@ import 'package:elearning_dashboard/core/errors/failure.dart';
 import 'package:elearning_dashboard/features/login/domain/entity/user_entity.dart';
 
 abstract class LoginRepo {
-  Future<Either<Failure, void>> login(UserEntity user);
+  Future<Either<Failure, void>> login(UserEntity userEntity);
 }

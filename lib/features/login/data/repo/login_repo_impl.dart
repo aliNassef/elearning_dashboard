@@ -14,10 +14,13 @@ class LoginRepoImpl extends LoginRepo {
 
   LoginRepoImpl({required this.authService});
   @override
-  Future<Either<Failure, void>> login(UserEntity user) async {
+  Future<Either<Failure, void>> login(UserEntity userEntity) async {
     try {
-      final user = await authService.login();
-      CacheHelper.saveData(key: 'uid', value: user.id);
+      final user = await authService.login(
+        email: userEntity.email,
+        password: userEntity.password,
+      );
+      CacheHelper.saveData(key: 'uid', value: user.uid);
       return right(null);
     } on ServerException catch (e) {
       return left(

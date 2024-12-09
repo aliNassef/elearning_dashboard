@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'features/quizes/presentation/view/quize_view.dart';
+import 'features/login/presentation/views/login_view.dart';
 import 'core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +23,7 @@ class ELearningApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
-        initialRoute: QuizeView.routeName,
+        initialRoute: LoginView.routeName,
         theme: ThemeData(
           colorScheme: const ColorScheme.light(
             primary: AppColors.primaryColor,

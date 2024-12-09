@@ -66,11 +66,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 icon: isSecure
                     ? const Icon(
                         Icons.visibility_off,
-                        color: AppColors.blackColor,
+                        color: AppColors.gray100Color,
                       )
                     : const Icon(
                         Icons.visibility_sharp,
-                        color: AppColors.blackColor,
+                        color: AppColors.gray100Color,
                       ),
               )
             : const SizedBox(),
