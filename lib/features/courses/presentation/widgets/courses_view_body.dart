@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:elearning_dashboard/features/quizes/presentation/view/quize_view.dart';
+
 import '../../../../core/shared/functions/build_loading_box.dart';
 import '../../../../core/shared/functions/toast_dialog.dart';
 import '../manger/course_cubit/course_cubit_cubit.dart';
@@ -104,6 +106,10 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                   if (state is CourseCubitSuccess) {
                     Navigator.pop(context);
                     showToast(text: 'Course added successfully');
+                    Navigator.pushReplacementNamed(
+                      context,
+                      QuizeView.routeName,
+                    );
                   }
 
                   if (state is CourseCubitFailure) {

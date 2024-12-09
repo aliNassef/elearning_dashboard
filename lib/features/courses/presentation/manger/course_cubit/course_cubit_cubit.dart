@@ -1,4 +1,5 @@
 import '../../../../../core/repos/image_repo/image_repo.dart';
+import '../../../../../core/utils/app_constants.dart';
 import '../../../domain/entity/course_entity.dart';
 import '../../../domain/repo/courses_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,7 @@ class CourseCubit extends Cubit<CourseState> {
             CourseCubitFailure(errMessage: failure.errMessage),
           ),
           (_) {
+            AppConstants.courseId = course.courseCode;
             emit(
               CourseCubitSuccess(),
             );

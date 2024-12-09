@@ -94,7 +94,7 @@ class _QuizeViewBodyState extends State<QuizeViewBody> {
                       final quize = QuizeEntity(
                         id: id.text,
                         title: title.text,
-                        courseId: '555',
+                        courseId: AppConstants.courseId!,
                         duration: int.parse(quizTime.text),
                       );
                       context.read<QuizCubit>().addQuize(quize);

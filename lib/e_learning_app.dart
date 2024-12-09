@@ -18,6 +18,7 @@ class ELearningApp extends StatelessWidget {
       enableScaleWH: () => false,
       enableScaleText: () => false,
       splitScreenMode: true,
+      
       builder: (context, child) => MaterialApp(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,

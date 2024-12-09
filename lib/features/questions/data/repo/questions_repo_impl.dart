@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:elearning_dashboard/core/utils/app_constants.dart';
 import '../../../../core/errors/failure.dart';
 import '../model/question_model.dart';
 import '../../domain/entity/question_entity.dart';
@@ -16,7 +17,7 @@ class QuestionsRepoImpl extends QuestionsRepo {
       List<QuestionEntity> questions) async {
     try {
       await questionsSource.addQuestiosn(
-        '555',
+        AppConstants.courseId!,
         questions.first.quizId,
         questions.map((e) => QuestionModel.fromEntity(e)).toList(),
       );

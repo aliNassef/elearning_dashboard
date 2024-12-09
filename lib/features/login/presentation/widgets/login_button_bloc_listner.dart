@@ -31,8 +31,8 @@ class LoginButtonBlocListner extends StatelessWidget {
             buildErrorMessage(context, errMessage: state.errMessage);
           } else if (state is LoginSuccess) {
             Navigator.pop(context);
-            Navigator.pushReplacementNamed(context, CoursesView.routeName);
             showToast(text: 'Login Successfully');
+            Navigator.pushReplacementNamed(context, CoursesView.routeName);
           } else {
             buildLoadingBox(context);
           }
