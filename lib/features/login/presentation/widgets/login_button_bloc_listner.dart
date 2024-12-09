@@ -4,6 +4,7 @@ import 'package:elearning_dashboard/core/shared/functions/build_loading_box.dart
 import 'package:elearning_dashboard/core/shared/functions/toast_dialog.dart';
 import 'package:elearning_dashboard/core/shared/widgets/default_app_button.dart';
 import 'package:elearning_dashboard/core/utils/app_color.dart';
+import 'package:elearning_dashboard/features/courses/presentation/view/courses_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,6 +31,7 @@ class LoginButtonBlocListner extends StatelessWidget {
             buildErrorMessage(context, errMessage: state.errMessage);
           } else if (state is LoginSuccess) {
             Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, CoursesView.routeName);
             showToast(text: 'Login Successfully');
           } else {
             buildLoadingBox(context);
