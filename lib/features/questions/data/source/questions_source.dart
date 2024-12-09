@@ -1,5 +1,5 @@
-import 'package:elearning_dashboard/core/services/firestore_database.dart';
-import 'package:elearning_dashboard/features/questions/data/model/question_model.dart';
+import '../../../../core/services/firestore_database.dart';
+import '../model/question_model.dart';
 
 import '../../../../core/errors/error_model.dart';
 import '../../../../core/errors/exceptions.dart';

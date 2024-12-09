@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/questions/domain/entity/question_entity.dart';
+import '../../domain/entity/question_entity.dart';
 
 class QuestionModel {
   final String question;

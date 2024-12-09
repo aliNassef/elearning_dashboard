@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:elearning_dashboard/core/errors/failure.dart';
-import 'package:elearning_dashboard/features/login/data/source/login_source.dart';
+import '../../../../core/errors/failure.dart';
+import '../source/login_source.dart';
 
-import 'package:elearning_dashboard/features/login/domain/entity/user_entity.dart';
+import '../../domain/entity/user_entity.dart';
 
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/errors/exceptions.dart';

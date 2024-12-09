@@ -1,5 +1,5 @@
-import 'package:elearning_dashboard/features/questions/domain/entity/question_entity.dart';
-import 'package:elearning_dashboard/features/questions/domain/repo/questions_repo.dart';
+import '../../../domain/entity/question_entity.dart';
+import '../../../domain/repo/questions_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 

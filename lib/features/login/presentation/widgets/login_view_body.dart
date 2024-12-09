@@ -1,9 +1,9 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:elearning_dashboard/core/shared/widgets/custom_text_form_field.dart';
-import 'package:elearning_dashboard/core/shared/widgets/spacers.dart';
-import 'package:elearning_dashboard/core/utils/app_color.dart';
-import 'package:elearning_dashboard/core/utils/app_constants.dart';
-import 'package:elearning_dashboard/core/utils/app_styles.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../../../core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'login_button_bloc_listner.dart';
 

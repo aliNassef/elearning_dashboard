@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/questions/presentation/widgets/question.dart';
+import 'question.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsViewBody extends StatefulWidget {

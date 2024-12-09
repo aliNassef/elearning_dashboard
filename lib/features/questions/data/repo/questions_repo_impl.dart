@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:elearning_dashboard/core/errors/failure.dart';
-import 'package:elearning_dashboard/features/questions/data/model/question_model.dart';
-import 'package:elearning_dashboard/features/questions/domain/entity/question_entity.dart';
-import 'package:elearning_dashboard/features/questions/domain/repo/questions_repo.dart';
+import '../../../../core/errors/failure.dart';
+import '../model/question_model.dart';
+import '../../domain/entity/question_entity.dart';
+import '../../domain/repo/questions_repo.dart';
 
 import '../../../../core/errors/exceptions.dart';
 import '../source/questions_source.dart';

@@ -1,5 +1,5 @@
-import 'package:elearning_dashboard/features/login/domain/entity/user_entity.dart';
-import 'package:elearning_dashboard/features/login/domain/repo/login_repo.dart';
+import '../../../domain/entity/user_entity.dart';
+import '../../../domain/repo/login_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 

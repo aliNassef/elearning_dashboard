@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:elearning_dashboard/features/questions/domain/entity/question_entity.dart';
+import '../entity/question_entity.dart';
 
 import '../../../../core/errors/failure.dart';
 

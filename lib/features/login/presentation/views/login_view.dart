@@ -1,6 +1,6 @@
-import 'package:elearning_dashboard/core/services/service_locator.dart';
-import 'package:elearning_dashboard/core/utils/app_color.dart';
-import 'package:elearning_dashboard/features/login/presentation/manger/cubit/login_cubit.dart';
+import '../../../../core/services/service_locator.dart';
+import '../../../../core/utils/app_color.dart';
+import '../manger/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

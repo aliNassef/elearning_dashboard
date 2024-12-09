@@ -1,10 +1,10 @@
-import 'package:elearning_dashboard/core/services/firebase_auth_service.dart';
-import 'package:elearning_dashboard/features/login/data/repo/login_repo_impl.dart';
-import 'package:elearning_dashboard/features/login/data/source/login_source.dart';
-import 'package:elearning_dashboard/features/login/domain/repo/login_repo.dart';
-import 'package:elearning_dashboard/features/questions/data/repo/questions_repo_impl.dart';
-import 'package:elearning_dashboard/features/questions/data/source/questions_source.dart';
-import 'package:elearning_dashboard/features/questions/domain/repo/questions_repo.dart';
+import 'firebase_auth_service.dart';
+import '../../features/login/data/repo/login_repo_impl.dart';
+import '../../features/login/data/source/login_source.dart';
+import '../../features/login/domain/repo/login_repo.dart';
+import '../../features/questions/data/repo/questions_repo_impl.dart';
+import '../../features/questions/data/source/questions_source.dart';
+import '../../features/questions/domain/repo/questions_repo.dart';
 import '../../features/lessons/data/source/lesson_source.dart';
 import '../../features/lessons/domain/repo/lesson_repo.dart';
 import '../../features/quizes/data/source/quize_source.dart';

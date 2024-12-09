@@ -1,4 +1,4 @@
-import 'package:elearning_dashboard/features/questions/presentation/view/questions_view.dart';
+import '../../../questions/presentation/view/questions_view.dart';
 
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/utils/app_constants.dart';

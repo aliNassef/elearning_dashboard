@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:elearning_dashboard/core/shared/functions/build_error_message.dart';
-import 'package:elearning_dashboard/core/shared/functions/build_loading_box.dart';
-import 'package:elearning_dashboard/core/shared/widgets/default_app_button.dart';
-import 'package:elearning_dashboard/core/shared/widgets/spacers.dart';
-import 'package:elearning_dashboard/core/utils/app_color.dart';
-import 'package:elearning_dashboard/core/utils/app_constants.dart';
-import 'package:elearning_dashboard/features/questions/presentation/widgets/questions_input_field.dart';
+import '../../../../core/shared/functions/build_error_message.dart';
+import '../../../../core/shared/functions/build_loading_box.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_constants.dart';
+import 'questions_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
